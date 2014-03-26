@@ -1,0 +1,185 @@
+/* css reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent; color: #F89427;}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+/*main stylesheet*/
+
+@font-face{
+	font-family:'opensans';
+	src: url('../font/OpenSans-Regular.ttf');
+	type:true-type;
+}
+
+ul li{list-style-type: none;}
+a{text-decoration: none;}
+body{
+	font-family: 'opensans', 
+	sans-serif; 
+	color: #777;
+}
+.countdown-box{
+	text-align: center; 
+	color: #f93434;
+	padding: 10px 0 10px;
+}
+.big-text p{color: #777;}
+.big-text li p{text-align: right;}
+.big-text li{float: left; overflow: hidden;}
+.big-text li span{font-size: 60px;margin: 0 7px;}
+.wrapper{
+	max-width: 450px;
+	margin: 0 auto;
+	border: 1px solid #CCC;
+	height: 650px;
+	position: relative;
+}
+.clearfix{clear: both;}
+.big-text{
+	overflow: hidden;
+	margin: 14px 14%;
+}
+a,img{
+	-webkit-transition: 0.25s ease-in-out;
+	-moz-transition: 0.25s ease-in-out;
+	transition: 0.25s ease-in-out; 
+	-ms-transition: 0.25s ease-in-out;
+	-o-transition: 0.25s ease-in-out;
+}
+.power-btn a{
+	background: #F66;
+	color: #FFF;
+	text-align: center;
+	display: block;
+	padding: 15px;
+}
+.power-btn a:hover{background-color: #F72D2D;}
+.footer{
+	overflow: hidden;
+	height: 50px;
+	border-top: 1px solid #CCC;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.footer ul li a{
+	padding: 18px 10px;
+	display: block;
+	color: #777;
+	border-right: 1px solid #ccc;
+	font-size: 15px;
+}
+.footer ul li:last-child a{border-right:0;}
+.schedule-list{
+	height: 365px;
+	overflow-y: auto;
+}
+.schedule-list ul li{
+	overflow: hidden;	
+	border-bottom: 1px solid #CCC;
+}
+.schedule-list ul li:last-child{border-bottom: 0;}
+.footer ul li{float: left;}
+.day-box span{display: block; font-size: 10px;}
+.day-box{
+	width: 60px;
+	text-align: center;
+	float: left;
+	border-right: 1px solid #ccc;
+	padding: 27px 10px;
+	font-size: 15px;
+        text-transform: capitalize;
+}
+.schedule-time{float: left;padding: 10px;}
+.schedule-time p{margin-top: 8px;}
+.load-date{
+	font-size: 19px !important;
+	padding: 5px 0;
+}
+.footer  ul{float: right;}
+
+.refresh-icon,
+.setting-icon,
+.view-icon{
+	display: block;
+	width: 30px;
+	height: 20px;
+	float: left;
+}
+.view-icon{background: url('../images/view.png') no-repeat 0 0;}
+.setting-icon{
+	background: url('../images/setting.png') no-repeat 0 0;
+}
+.refresh-icon{
+	background: url('../images/refresh.png') no-repeat 0 0;
+}
+.footer ul li a:hover{background: #F1F1F1;}
+.group-list ul li a{
+	padding: 30px 19px;
+	display: block;
+	color: #777;
+}
+.group-list ul li a:hover{
+	background-color: #f3f3f3;
+}
+.group-list ul li a:active{padding-left: 35px; }
+.group-list{
+	height: 100%;
+}
+.page-title{padding: 19px;}
+.inner-head{	
+	border-bottom: 2px solid #CCC;
+	overflow: hidden;
+}
+.inner-head h2{float: left;}
+.my-grp{
+	float: right;
+	display: block;
+	padding: 19px;
+	color: #777;
+}
+.group-list .my-grp:hover{background-color: #f8f8f8}
+.setting-list ul li{
+	padding: 20px;
+}
+.setting-list label{
+	width: 170px;
+	display: block;
+	float: left;
+}
+select{
+	padding: 5px 20px;
+	border-color: #CCC;
+	color: #777;
+}
+.input-radio-grp label{
+	width: auto !important;
+	float: left;
+	margin-right: 20px;
+}
+.input-radio-grp input{float: left;}
+.current-grp{
+	display: block;
+	color: #777;
+	border-bottom: 1px solid #CCC;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+.save-btn{
+    background: none repeat scroll 0 0 #36C552;
+color: #FFFFFF;
+padding: 9px 22px;
+text-decoration: none;
+border-radius: 5px;
+}

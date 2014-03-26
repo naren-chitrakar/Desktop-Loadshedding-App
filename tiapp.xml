@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ti:app xmlns:ti='http://ti.appcelerator.org'>
+<!-- These values are edited/maintained by TideSDK Developer -->
+<id>com.ridi.app</id>
+<name>ridi</name>
+<version>1.0</version>
+<publisher>naren</publisher>
+<url>narenchitrakar.com</url>
+<icon>default_app_logo.png</icon>
+<copyright>2014 by naren</copyright>
+<!-- Window Definition - these values can be edited -->
+<window>
+<id>initial</id>
+<title>ridi</title>
+<url>app://index.html</url>
+<width>450</width>
+<max-width>450</max-width>
+<min-width>0</min-width>
+<height>660</height>
+<max-height>660</max-height>
+<min-height>0</min-height>
+<fullscreen>false</fullscreen>
+<resizable>false</resizable>
+<chrome scrollbars="true">true</chrome>
+<maximizable>true</maximizable>
+<minimizable>true</minimizable>
+<closeable>true</closeable>
+</window>
+</ti:app>
