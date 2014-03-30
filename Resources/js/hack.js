@@ -16,6 +16,28 @@ $( function( ){
             this.groupId = groupId;
         },
         init : function( ){
+            
+            
+            if ( typeof( localStorage.currentSchedule) == undefined || localStorage.currentSchedule == "" ) { 
+                
+                var promise = new Promise( function (){
+                    $.ajax({
+                        url : "data/currentSchedule.php",
+                        dataType : "html",
+                        async : false,
+                        success: function( msg ){
+                            console.log( localStorage.currentSchedule );
+                            localStorage.currentSchedule = msg;
+                        },
+                        error : function( msg ){
+                            alert("Schedule Could not be downloaded at the moment. PLease try again later.")
+                        }                        
+                    })
+                });
+                
+            }
+            
+            ///promise.then(function(){
             if ( typeof( localStorage.groupId ) != undefined ) {
                 if ( localStorage.groupId > 0 && localStorage.groupId <= 7) {
                     this.setGroupId( localStorage.groupId );
@@ -25,11 +47,14 @@ $( function( ){
             } else {
                 window.location.href = "setting.html";
             }
-            var msg = JSON.parse( localStorage.currentSchedule );
             
+            var msg = JSON.parse( localStorage.currentSchedule );
+            console.log( msg );
             var html = hack.renderScheduleHtml( msg[ this.groupId  ] );
             hack.feed( '.schedule-list', html );
             hack.runCountDown();
+        //  })
+            
             
         },
         
@@ -52,9 +77,6 @@ $( function( ){
         }, 
         parseDecimal : function( dec ) {
             return parseInt( dec, 10 );
-        },
-        refreshGroup : function( ) {
-        
         },
         checkNotification : function( groupId ){
         
@@ -169,8 +191,8 @@ $( function( ){
                             done = true;
                         } else if( thisMinute > startTime && thisMinute < endTime ) {
                             console.log( thisMinute );
-                        console.log( startTime );
-                        console.log( endTime );
+                            console.log( startTime );
+                            console.log( endTime );
                             var totalRemMinute = ( thisMinute - startTime );
                             remHour = ( totalRemMinute - ( totalRemMinute % 60 ) ) / 60;
                             remMinute = totalRemMinute % 60;
@@ -192,13 +214,24 @@ $( function( ){
         getCurrentSchedule : function( ){
             var currentSchedule = JSON.parse( localStorage.currentSchedule );
             return currentSchedule[ this.groupId ];
+        },
+        updateSchedule : function(){
+            $.ajax({
+                url : "data/newSchedule.php",
+                success : function( msg ){
+                    localStorage.currentSchedule = msg;
+                    var schedule = JSON.parse( localStorage.currentSchedule );                    
+                    var html = hack.renderScheduleHtml( schedule[ hack.getMe().groupId  ] );
+                    hack.feed( '.schedule-list', html );
+                    hack.runCountDown();
+                }
+            })
         }
-    
     };
 
 
     $(".refresh").on("click", function(){
-        hack.refreshGroup( 1 );
+        hack.updateSchedule();
     })
     
     $(".power-btn").on("click", function() {
